@@ -172,9 +172,13 @@ def _find_replace(
         raise ValueError("`match` can only be 'exact' or 'regex'.")
 
     if match.lower() == "exact":
+<<<<<<< HEAD
         df[column_name] = (
             df[column_name].map(mapper).fillna(df[column_name]).fillna(df[column_name])
         )
+=======
+        df[column_name] = df[column_name].map(mapper).fillna(df[column_name]).fillna(df[column_name])
+>>>>>>> 923d4900 (ENH: fix .map() to preserve unmapped values using fillna)
     if match.lower() == "regex":
         for k, v in mapper.items():
             condition = df[column_name].str.contains(k, regex=True)
